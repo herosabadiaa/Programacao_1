@@ -17,11 +17,11 @@ class Pista:
         self.extensao = extensao
         self.veiculos = veiculos
 
-v1 = Veiculo("1", "azul", 15, 0, 16.4, "A")
-v2 = Veiculo("2", "preto", 17, 0, 14.3, "B")
-v3 = Veiculo("3", "branco", 10, 0, 19.1, "C")
+v1 = Veiculo("1", "azul", 15, 0, 18.4, "A")
+v2 = Veiculo("2", "preto", 13, 0, 21, "B")
+v3 = Veiculo("3", "branco", 14, 0, 19.1, "C")
 
-ps1 = Pista(200, [v1,v2,v3])
+ps1 = Pista(275, [v1,v2,v3])
 
 acabou = False
 while True:

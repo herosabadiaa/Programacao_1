@@ -1,3 +1,4 @@
+import time
 class Veiculo:
     def __init__(self, placa: str, cor: str, tanque: int, odometro: float, rendimento: float, desenho: str):
         self.placa = placa
@@ -18,19 +19,23 @@ class Pista:
 
 v1 = Veiculo("1", "azul", 15, 0, 16.4, "A")
 v2 = Veiculo("2", "preto", 17, 0, 14.3, "B")
-v3 = Veiculo("3", "branco", 10, 0, 17.1, "C")
+v3 = Veiculo("3", "branco", 10, 0, 19.1, "C")
 
 ps1 = Pista(200, [v1,v2,v3])
 
 acabou = False
 while True:
+    print("\nCorrida")
     for vei in ps1.veiculos:
         vei.Andar()
+        percurso = "_" * int(vei.odometro/3)
+        print(f"Carro: {vei.placa}{vei.odometro: .2f}km / {vei.tanque}L: {percurso}{vei.desenho}")
+        time.sleep(1)
         if vei.odometro >= ps1.extensao:
             print(f"{vei.desenho} venceu")
             acabou = True
             break
     if acabou == True:
         for vei in ps1.veiculos:
-            print(f"{vei.desenho} pecorreu {vei.odometro}km e sobrou {vei.tanque} litros")
+            print(f"{vei.desenho} pecorreu {vei.odometro: .2f}km e sobrou {vei.tanque} litros")
         break

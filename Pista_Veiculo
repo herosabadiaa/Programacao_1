@@ -1,0 +1,36 @@
+class Veiculo:
+    def __init__(self, placa: str, cor: str, tanque: int, odometro: float, rendimento: float, desenho: str):
+        self.placa = placa
+        self.cor = cor
+        self.tanque = tanque
+        self.odometro = odometro
+        self.rendimento = rendimento
+        self.desenho = desenho
+    def Andar(self):
+        if self.tanque > 0:
+            self.tanque -= 1
+            self.odometro += self.rendimento
+
+class Pista: 
+    def __init__(self, extensao: int, veiculos: list):
+        self.extensao = extensao
+        self.veiculos = veiculos
+
+v1 = Veiculo("1", "azul", 15, 0, 16.4, "A")
+v2 = Veiculo("2", "preto", 17, 0, 14.3, "B")
+v3 = Veiculo("3", "branco", 10, 0, 17.1, "C")
+
+ps1 = Pista(200, [v1,v2,v3])
+
+acabou = False
+while True:
+    for vei in ps1.veiculos:
+        vei.Andar()
+        if vei.odometro >= ps1.extensao:
+            print(f"{vei.desenho} venceu")
+            acabou = True
+            break
+    if acabou == True:
+        for vei in ps1.veiculos:
+            print(f"{vei.desenho} pecorreu {vei.odometro}km e sobrou {vei.tanque} litros")
+        break
